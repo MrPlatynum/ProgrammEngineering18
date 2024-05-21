@@ -4,14 +4,11 @@
 # -*- coding: utf-8 -*-
 
 def count_long_words(filename):
-    try:
-        with open(filename, 'r') as file:
-            text = file.read()
-            words = text.split()
-            long_words_count = sum(1 for word in words if len(word) >= 7)
-            return long_words_count
-    except FileNotFoundError:
-        print("Файл не найден.")
+    with open(filename, 'r') as file:
+        text = file.read()
+        words = text.split()
+        long_words_count = sum(1 for word in words if len(word) >= 7)
+        return long_words_count
 
 
 if __name__ == "__main__":
