@@ -21,15 +21,12 @@ def clean_text(text):
 
 
 def most_common_words(filename):
-    try:
-        with open(filename, 'r') as file:
-            text = file.read()
-            words = clean_text(text)
-            word_counts = Counter(words)
-            most_common = word_counts.most_common(1)
-            return most_common
-    except FileNotFoundError:
-        print("Файл не найден.")
+    with open(filename, 'r') as file:
+        text = file.read()
+        words = clean_text(text)
+        word_counts = Counter(words)
+        most_common = word_counts.most_common(1)
+        return most_common
 
 
 if __name__ == "__main__":
