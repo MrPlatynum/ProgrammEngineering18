@@ -1,6 +1,13 @@
 repos:
--   repo: local
+ -  repo: local
     hooks:
+    -   id: isort
+        name: isort
+        entry: isort --settings-file ./pyproject.toml .
+        language: system
+        types: [ python ]
+        pass_filenames: false
+
     -   id: black
         name: black
         entry: black --config ./pyproject.toml .
@@ -11,13 +18,6 @@ repos:
     -   id: flake8
         name: flake8
         entry: flake8 --config .flake8 .
-        language: system
-        types: [ python ]
-        pass_filenames: false
-
-    -   id: isort
-        name: isort
-        entry: isort --settings-file ./pyproject.toml .
         language: system
         types: [ python ]
         pass_filenames: false
